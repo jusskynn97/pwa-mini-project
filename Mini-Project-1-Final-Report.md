@@ -11,7 +11,7 @@
 
 - **Team Members:**
   1. [Bui Dang Trung Kien] — Student ID: [23IT.B102] — Role: [Team Lead / Frontend Architecture] — Contribution: [100%]
-- **🔗 Live Demo URL:** [https://pwa-mini-project-tawny.vercel.app/]
+- **🔗 Live Demo URL:** [https://pwa-mini-project-git-main-kienbui1.vercel.app/]
 - **💻 GitHub Repository:** [https://github.com/kienbuisoarigvietnam/pwa-mini-project]
 - **🎥 Video Demo (Optional):** [https://youtu.be/xxx]
 
