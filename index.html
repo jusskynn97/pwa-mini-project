@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#0284c7">
+    <meta name="description" content="Hệ thống kiểm tra cơ sở vật chất khuôn viên VKU - PWA Offline">
+    <title>VKU Facility Inspector</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192x192.png">
+    <link rel="apple-touch-icon" href="icons/icon-192x192.png">
+</head>
+<body>
+    <div id="app">
+        <header class="app-header">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="logo-icon">🏫</div>
+                    <div class="header-text">
+                        <h1>VKU Inspector</h1>
+                        <p class="subtitle">Kiểm tra cơ sở vật chất</p>
+                    </div>
+                </div>
+                <div class="status-indicators">
+                    <div id="networkStatus" class="status-badge online">
+                        <span class="status-dot"></span>
+                        <span class="status-text">Online</span>
+                    </div>
+                    <div id="queueBadge" class="queue-badge hidden">
+                        <span id="queueCount">0</span>
+                    </div>
+                </div>
+            </div>
+            <nav class="tab-nav">
+                <button class="tab-btn active" data-tab="form">
+                    <span class="tab-icon">📝</span>
+                    <span class="tab-label">Biểu mẫu</span>
+                </button>
+                <button class="tab-btn" data-tab="history">
+                    <span class="tab-icon">📋</span>
+                    <span class="tab-label">Lịch sử</span>
+                </button>
+                <button class="tab-btn" data-tab="sync">
+                    <span class="tab-icon">🔄</span>
+                    <span class="tab-label">Đồng bộ</span>
+                </button>
+            </nav>
+        </header>
+
+        <main class="app-main">
+            <section id="formSection" class="tab-section active">
+                <form id="inspectionForm" class="multi-step-form">
+                    <div class="progress-bar">
+                        <div class="progress-steps">
+                            <div class="step active" data-step="1">
+                                <div class="step-number">1</div>
+                                <div class="step-label">Vị trí</div>
+                            </div>
+                            <div class="step" data-step="2">
+                                <div class="step-number">2</div>
+                                <div class="step-label">Danh mục</div>
+                            </div>
+                            <div class="step" data-step="3">
+                                <div class="step-number">3</div>
+                                <div class="step-label">Đánh giá</div>
+                            </div>
+                            <div class="step" data-step="4">
+                                <div class="step-number">4</div>
+                                <div class="step-label">Xác nhận</div>
+                            </div>
+                        </div>
+                        <div class="progress-line">
+                            <div id="progressFill" class="progress-fill" style="width: 25%"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-steps">
+                        <div class="form-step active" data-step="1">
+                            <div class="step-title">
+                                <h2>📍 Thông tin vị trí</h2>
+                                <p>Chọn tòa nhà, tầng và phòng cần kiểm tra</p>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="building">Tòa nhà *</label>
+                                <select id="building" name="building" required>
+                                    <option value="">-- Chọn tòa nhà --</option>
+                                    <option value="A">Tòa A - Chính</option>
+                                    <option value="B">Tòa B - Nhân văn</option>
+                                    <option value="C">Tòa C - Kỹ thuật</option>
+                                    <option value="D">Tòa D - CNTT</option>
+                                    <option value="E">Tòa E - Thực hành</option>
+                                    <option value="BASEMENT">Tầng hầm</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="floor">Tầng *</label>
+                                <select id="floor" name="floor" required>
+                                    <option value="">-- Chọn tầng --</option>
+                                    <option value="0">Tầng trệt</option>
+                                    <option value="1">Tầng 1</option>
+                                    <option value="2">Tầng 2</option>
+                                    <option value="3">Tầng 3</option>
+                                    <option value="4">Tầng 4</option>
+                                    <option value="5">Tầng 5</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="roomNumber">Số phòng *</label>
+                                <input type="text" id="roomNumber" name="roomNumber" placeholder="VD: 301, Lab 101" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="inspectorName">Người kiểm tra</label>
+                                <input type="text" id="inspectorName" name="inspectorName" placeholder="Họ và tên">
+                            </div>
+                        </div>
+
+                        <div class="form-step" data-step="2">
+                            <div class="step-title">
+                                <h2>🗂️ Danh mục kiểm tra</h2>
+                                <p>Chọn loại thiết bị/cơ sở vật chất cần đánh giá</p>
+                            </div>
+
+                            <div class="category-grid">
+                                <label class="category-card">
+                                    <input type="radio" name="category" value="Hardware" required>
+                                    <div class="category-content">
+                                        <div class="category-icon">💻</div>
+                                        <div class="category-name">Máy tính</div>
+                                        <div class="category-desc">Máy tính, bàn phím, chuột</div>
+                                    </div>
+                                </label>
+
+                                <label class="category-card">
+                                    <input type="radio" name="category" value="Projector">
+                                    <div class="category-content">
+                                        <div class="category-icon">📽️</div>
+                                        <div class="category-name">Máy chiếu</div>
+                                        <div class="category-desc">Máy chiếu, màn hình</div>
+                                    </div>
+                                </label>
+
+                                <label class="category-card">
+                                    <input type="radio" name="category" value="AC">
+                                    <div class="category-content">
+                                        <div class="category-icon">❄️</div>
+                                        <div class="category-name">Điều hòa</div>
+                                        <div class="category-desc">Máy lạnh, quạt</div>
+                                    </div>
+                                </label>
+
+                                <label class="category-card">
+                                    <input type="radio" name="category" value="Electrical">
+                                    <div class="category-content">
+                                        <div class="category-icon">⚡</div>
+                                        <div class="category-name">Điện</div>
+                                        <div class="category-desc">Ổ cắm, công tắc, dây điện</div>
+                                    </div>
+                                </label>
+
+                                <label class="category-card">
+                                    <input type="radio" name="category" value="Furniture">
+                                    <div class="category-content">
+                                        <div class="category-icon">🪑</div>
+                                        <div class="category-name">Nội thất</div>
+                                        <div class="category-desc">Bàn ghế, tủ, cửa</div>
+                                    </div>
+                                </label>
+
+                                <label class="category-card">
+                                    <input type="radio" name="category" value="Other">
+                                    <div class="category-content">
+                                        <div class="category-icon">📦</div>
+                                        <div class="category-name">Khác</div>
+                                        <div class="category-desc">Vật tư khác</div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-step" data-step="3">
+                            <div class="step-title">
+                                <h2>⭐ Đánh giá tình trạng</h2>
+                                <p>Đánh giá chất lượng và ghi chú các lỗi phát hiện</p>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Đánh giá tình trạng *</label>
+                                <div class="star-rating" id="starRating">
+                                    <button type="button" class="star" data-value="1">☆</button>
+                                    <button type="button" class="star" data-value="2">☆</button>
+                                    <button type="button" class="star" data-value="3">☆</button>
+                                    <button type="button" class="star" data-value="4">☆</button>
+                                    <button type="button" class="star" data-value="5">☆</button>
+                                </div>
+                                <div id="ratingLabel" class="rating-label">Vui lòng chọn đánh giá</div>
+                                <input type="hidden" id="rating" name="rating" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="defectNotes">Ghi chú lỗi / Mô tả</label>
+                                <textarea id="defectNotes" name="defectNotes" rows="4" placeholder="Mô tả chi tiết tình trạng, lỗi phát hiện..."></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Chụp ảnh</label>
+                                <div class="photo-upload">
+                                    <label class="photo-btn">
+                                        <input type="file" id="photoInput" accept="image/*" capture="environment">
+                                        <span class="photo-icon">📷</span>
+                                        <span>Chụp ảnh / Tải lên</span>
+                                    </label>
+                                    <div id="photoPreview" class="photo-preview hidden">
+                                        <img id="previewImg" src="" alt="Preview">
+                                        <button type="button" id="removePhoto" class="remove-photo">✕</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-step" data-step="4">
+                            <div class="step-title">
+                                <h2>✅ Xác nhận thông tin</h2>
+                                <p>Kiểm tra lại thông tin trước khi lưu</p>
+                            </div>
+
+                            <div id="summaryContent" class="summary-card">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" id="prevBtn" class="btn btn-secondary hidden">← Quay lại</button>
+                        <div class="spacer"></div>
+                        <button type="button" id="nextBtn" class="btn btn-primary">Tiếp theo →</button>
+                        <button type="button" id="submitBtn" class="btn btn-success hidden">💾 Lưu báo cáo</button>
+                    </div>
+                </form>
+            </section>
+
+            <section id="historySection" class="tab-section">
+                <div class="section-header">
+                    <h2>📋 Lịch sử kiểm tra</h2>
+                    <div class="filter-bar">
+                        <select id="historyFilter">
+                            <option value="all">Tất cả</option>
+                            <option value="SYNCED">Đã đồng bộ</option>
+                            <option value="PENDING_SYNC">Chờ đồng bộ</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="historyList" class="history-list">
+                    <div class="empty-state">
+                        <div class="empty-icon">📭</div>
+                        <p>Chưa có báo cáo kiểm tra nào</p>
+                        <button class="btn btn-primary" data-tab="form">Tạo báo cáo mới</button>
+                    </div>
+                </div>
+            </section>
+
+            <section id="syncSection" class="tab-section">
+                <div class="section-header">
+                    <h2>🔄 Quản lý đồng bộ</h2>
+                </div>
+
+                <div class="sync-stats">
+                    <div class="stat-card">
+                        <div class="stat-value" id="totalReports">0</div>
+                        <div class="stat-label">Tổng báo cáo</div>
+                    </div>
+                    <div class="stat-card synced">
+                        <div class="stat-value" id="syncedReports">0</div>
+                        <div class="stat-label">Đã đồng bộ</div>
+                    </div>
+                    <div class="stat-card pending">
+                        <div class="stat-value" id="pendingReports">0</div>
+                        <div class="stat-label">Chờ đồng bộ</div>
+                    </div>
+                </div>
+
+                <div id="syncQueueList" class="queue-list">
+                </div>
+
+                <div class="sync-actions">
+                    <button id="manualSyncBtn" class="btn btn-primary">🔄 Đồng bộ ngay</button>
+                    <button id="clearPendingBtn" class="btn btn-danger">🗑️ Xóa hàng đợi</button>
+                </div>
+
+                <div id="syncLog" class="sync-log">
+                </div>
+            </section>
+        </main>
+
+        <div id="toastContainer" class="toast-container"></div>
+
+        <div id="installPrompt" class="install-banner hidden">
+            <div class="install-content">
+                <span class="install-icon">📱</span>
+                <span>Cài đặt ứng dụng trên thiết bị của bạn</span>
+            </div>
+            <button id="installBtn" class="btn btn-primary btn-sm">Cài đặt</button>
+            <button id="dismissInstall" class="dismiss-btn">✕</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/localforage@1.10.0/dist/localforage.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
