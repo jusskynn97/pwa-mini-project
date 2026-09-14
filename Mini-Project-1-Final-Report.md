@@ -94,30 +94,30 @@ vku-facility-inspector/
 ## 4. EMPIRICAL EVIDENCE & SCREENSHOTS
 
 > **Screenshot 1 — PWA Installed on Android**
-> Icon appears on Home Screen after pressing "Add to Home Screen" via Chrome menu. Launcher opens fullscreen (no browser chrome), confirming `display: standalone` in manifest.
 >
-> ![Installed PWA](https://via.placeholder.com/400x700/0284c7/ffffff?text=PWA+Installed+on+Android+Standalone)
+> ![Installed PWA](<img width="864" height="1920" alt="image" src="https://github.com/user-attachments/assets/a0620a08-1a10-4ebc-8335-b53223e5552b" />
+)
 
 ---
 
 > **Screenshot 2 — Multi-Step Form Step 1 (Location) + Offline Mode**
-> User selects Building=D, Floor=3, Room=301 in tầng hầm không có Wi-Fi. Header red "OFFLINE" badge visible. Form still fully interactive.
 >
-> ![Offline Form](https://via.placeholder.com/400x700/0369a1/e0f2fe?text=Offline+Form+Step+1+Tầng+hầm)
+> ![Offline Form](<img width="864" height="1920" alt="image" src="https://github.com/user-attachments/assets/073488a5-cdec-4666-b8b1-0b3f9ec294c5" />
+)
 
 ---
 
 > **Screenshot 3 — IndexedDB Content + PENDING_SYNC Queue (DevTools)**
-> Application → IndexedDB → vku_inspector store shows 2 records with `syncStatus: PENDING_SYNC`, unique UUIDs, and base64 photo JPEG thumbnail.
 >
-> ![IndexedDB Queue](https://via.placeholder.com/600x350/10b981/ecfdf5?text=IndexedDB+PENDING_SYNC+Queue+2+Records)
+> ![IndexedDB Queue](<img width="864" height="1920" alt="image" src="https://github.com/user-attachments/assets/1a56b115-6f77-4413-956c-88e7ce327a3c" />
+)
 
 ---
 
 > **Screenshot 4 — Google Sheets Output (Cloud Sync)**
-> Rows auto-populated via Apps Script Webhook 2.5 seconds after regaining 4G. Column G "Danh mục" 💻/📽️/❄️, Column H highlighted per rating (red=1→green=5).
 >
-> ![Google Sheets Sync](https://via.placeholder.com/700x300/fbbf24/78350f?text=Google+Sheets+Synced+Rows+VKU+Inspections)
+> ![Google Sheets Sync](<img width="864" height="1920" alt="image" src="https://github.com/user-attachments/assets/5bd2f913-52cd-4a2d-98db-2ff344bc3fb7" />
+)
 
 ---
 
