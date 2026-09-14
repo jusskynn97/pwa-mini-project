@@ -95,28 +95,28 @@ vku-facility-inspector/
 
 > **Screenshot 1 — PWA Installed on Android**
 >
-> ![Installed PWA](<img width="864" height="1920" alt="image" src="https://github.com/user-attachments/assets/a0620a08-1a10-4ebc-8335-b53223e5552b" />
+> ![Installed PWA]("https://github.com/user-attachments/assets/a0620a08-1a10-4ebc-8335-b53223e5552b"
 )
 
 ---
 
 > **Screenshot 2 — Multi-Step Form Step 1 (Location) + Offline Mode**
 >
-> ![Offline Form](<img width="864" height="1920" alt="image" src="https://github.com/user-attachments/assets/073488a5-cdec-4666-b8b1-0b3f9ec294c5" />
+> ![Offline Form]("https://github.com/user-attachments/assets/073488a5-cdec-4666-b8b1-0b3f9ec294c5"
 )
 
 ---
 
 > **Screenshot 3 — IndexedDB Content + PENDING_SYNC Queue (DevTools)**
 >
-> ![IndexedDB Queue](<img width="864" height="1920" alt="image" src="https://github.com/user-attachments/assets/1a56b115-6f77-4413-956c-88e7ce327a3c" />
+> ![IndexedDB Queue]("https://github.com/user-attachments/assets/1a56b115-6f77-4413-956c-88e7ce327a3c"
 )
 
 ---
 
 > **Screenshot 4 — Google Sheets Output (Cloud Sync)**
 >
-> ![Google Sheets Sync](<img width="864" height="1920" alt="image" src="https://github.com/user-attachments/assets/5bd2f913-52cd-4a2d-98db-2ff344bc3fb7" />
+> ![Google Sheets Sync]("https://github.com/user-attachments/assets/5bd2f913-52cd-4a2d-98db-2ff344bc3fb7"
 )
 
 ---
