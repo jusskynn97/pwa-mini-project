@@ -1,0 +1,27 @@
+{
+  "name": "mini-project1",
+  "version": "1.0.0",
+  "description": "> Cross-Platform Progressive Web App cho kiểm tra cơ sở vật chất khuôn viên VKU. Hoạt động hoàn toàn Offline với IndexedDB & Background Sync. Tích hợp lưu trữ Google Sheets.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "copy:www": "node -e \"const fs=require('fs');const path=require('path');const wd='www';if(!fs.existsSync(wd))fs.mkdirSync(wd,{recursive:true});const files=['index.html','styles.css','app.js','manifest.json','sw.js','offline.html','google-sheets-script.js','favicon.ico','generate-icons.html','generate-icons.js'];for(const f of files){if(fs.existsSync(f))fs.copyFileSync(f,path.join(wd,f));}const cp=(s,d)=>{if(!fs.existsSync(s))return;if(fs.statSync(s).isDirectory()){fs.mkdirSync(d,{recursive:true});for(const x of fs.readdirSync(s))cp(path.join(s,x),path.join(d,x));}else fs.copyFileSync(s,d);};cp('icons','www/icons');console.log('Web assets copied to www/');\"",
+    "cap:init": "npx cap init",
+    "cap:sync": "npm run copy:www && npx cap sync",
+    "cap:add:android": "npm run copy:www && npx cap add android",
+    "cap:add:ios": "npm run copy:www && npx cap add ios",
+    "cap:open:android": "npx cap open android",
+    "cap:open:ios": "npx cap open ios"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@capacitor/camera": "6.1.3",
+    "@capacitor/cli": "6.2.2",
+    "@capacitor/core": "6.2.2",
+    "@capacitor/geolocation": "6.1.1",
+    "@capacitor/local-notifications": "6.1.3",
+    "@capacitor/network": "6.0.4"
+  }
+}

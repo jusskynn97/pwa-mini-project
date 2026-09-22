@@ -1,0 +1,45 @@
+{
+  "appId": "com.vku.inspector",
+  "appName": "VKU Inspector",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https",
+    "cleartext": true
+  },
+  "plugins": {
+    "Camera": {
+      "saveToGallery": true,
+      "resultType": "base64",
+      "quality": 80,
+      "correctOrientation": true,
+      "allowEditing": false,
+      "source": "prompt"
+    },
+    "Geolocation": {
+      "locationAccuracy": "high"
+    },
+    "LocalNotifications": {
+      "smallIcon": "ic_stat_icon_config_sample",
+      "iconColor": "#0284c7",
+      "sound": "beep.wav"
+    },
+    "Network": {}
+  },
+  "android": {
+    "permissions": [
+      "android.permission.CAMERA",
+      "android.permission.ACCESS_FINE_LOCATION",
+      "android.permission.ACCESS_COARSE_LOCATION",
+      "android.permission.WRITE_EXTERNAL_STORAGE",
+      "android.permission.READ_EXTERNAL_STORAGE",
+      "android.permission.POST_NOTIFICATIONS",
+      "android.permission.ACCESS_NETWORK_STATE",
+      "android.permission.INTERNET"
+    ]
+  },
+  "ios": {
+    "preferredContentMode": "mobile",
+    "contentInset": "automatic",
+    "recapAppIdScheme": "capacitor"
+  }
+}
