@@ -10,7 +10,7 @@
 ## 1. GENERAL INFORMATION & DELIVERABLE LINKS
 
 - **🔗 Live Demo (PWA gốc):** [https://pwa-mini-project-tawny.vercel.app/]
-- **💻 GitHub Repository:** [https://github.com/kienbuisoarigvietnam/pwa-mini-project]
+- **💻 GitHub Repository:** [https://github.com/jusskynn97/pwa-mini-project/tree/feature/implement-capacitor]
 - **📦 APK Output Path (Android Release):** `android/app/release/app-release.apk` (build bằng Android Studio theo [CAPACITOR-README.md](./CAPACITOR-README.md#4-build-android-apk--aab)) (https://github.com/jusskynn97/pwa-mini-project/blob/feature/implement-capacitor/app-release.apk)
 - **📘 Capacitor Setup Guide:** [CAPACITOR-README.md](./CAPACITOR-README.md) — Full step-by-step build & troubleshooting
 - **🎥 Video Demo (Optional):** [https://youtu.be/xxx]
