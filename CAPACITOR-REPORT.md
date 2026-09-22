@@ -11,7 +11,7 @@
 
 - **🔗 Live Demo (PWA gốc):** [https://pwa-mini-project-tawny.vercel.app/]
 - **💻 GitHub Repository:** [https://github.com/kienbuisoarigvietnam/pwa-mini-project]
-- **📦 APK Output Path (Android Release):** `android/app/release/app-release.apk` (build bằng Android Studio theo [CAPACITOR-README.md](./CAPACITOR-README.md#4-build-android-apk--aab))
+- **📦 APK Output Path (Android Release):** `android/app/release/app-release.apk` (build bằng Android Studio theo [CAPACITOR-README.md](./CAPACITOR-README.md#4-build-android-apk--aab)) (https://github.com/jusskynn97/pwa-mini-project/blob/feature/implement-capacitor/app-release.apk)
 - **📘 Capacitor Setup Guide:** [CAPACITOR-README.md](./CAPACITOR-README.md) — Full step-by-step build & troubleshooting
 - **🎥 Video Demo (Optional):** [https://youtu.be/xxx]
 
@@ -174,7 +174,9 @@ mini-project1/
 - **Kịch bản:** Build APK release (`app-release.apk`) → cài đặt → icon "VKU Inspector" xuất hiện trên Launcher.
 - **Chứng minh:** App không còn trong browser chrome (không có URL bar), so với PWA Phase 1. Bundle ID = `com.vku.inspector` trong Settings → Apps → VKU Inspector.
 - **File path:** `docs/img/01-launcher-icon.png`
-- ![Placeholder 1: Launcher Icon](https://via.placeholder.com/400x700/0284c7/ffffff?text=APK+installed+%7C+Icon+VKU+Inspector+on+Home+Screen)
+- ![Placeholder 1: Launcher Icon](
+  <img width="370" height="818" alt="image" src="https://github.com/user-attachments/assets/527ad3b8-70c0-4fd4-81ea-56be530ee23a" />
+)
 
 ---
 
@@ -182,7 +184,10 @@ mini-project1/
 - **Kịch bản:** Mở app → Tab Báo cáo → Step 1 → bấm **"📍 Lấy vị trí hiện tại"** → accept permission popup.
 - **Chứng minh:** Card xanh `gps-status` hiển thị: "✅ Đã lấy vị trí", `Vĩ độ: 16.073513, Kinh độ: 108.219395, Độ chính xác: ±12m`.
 - **File path:** `docs/img/02-gps-step1.png`
-- ![Placeholder 2: GPS Step 1](https://via.placeholder.com/400x700/10b981/ecfdf5?text=Step+1+%7C+GPS+16.07%2C+108.22+%C2%B112m)
+- ![Placeholder 2: GPS Step 1](
+<img width="381" height="840" alt="Screenshot 2026-09-22 205117" src="https://github.com/user-attachments/assets/15fc88ca-c726-4001-ae0e-8d579e1c6d90" />
+
+)
 
 ---
 
@@ -193,7 +198,11 @@ mini-project1/
   2. Photo Preview trong Step 3 hiện ảnh mới nén.
   3. Thoát app → mở **Photos app** → **Album Camera** → thấy ảnh vừa chụp (đúng `saveToGallery:true`).
 - **File path:** `docs/img/03-camera-saved-gallery.png`
-- ![Placeholder 3: Camera + Gallery](https://via.placeholder.com/600x400/fbbf24/78350f?text=Step+3+%7C+Camera+Native+opened+%26+Saved+to+Gallery)
+- ![Placeholder 3: Camera + Gallery](
+<img width="374" height="837" alt="Screenshot 2026-09-22 205506" src="https://github.com/user-attachments/assets/112248bd-db4d-4241-aae4-268a3b23918d" />
+<img width="377" height="848" alt="Screenshot 2026-09-22 205544" src="https://github.com/user-attachments/assets/d87c5aee-bdd8-4477-bb61-c3eb847d7de8" />
+
+)
 
 ---
 
@@ -203,7 +212,10 @@ mini-project1/
   2. Thanh notification drawer Android → hiện 🔔 "Mất kết nối mạng - Ứng dụng đang chạy Offline".
   3. Lưu 1 báo cáo khi offline → notification "Đã lưu Offline... sẽ tự động đồng bộ khi có mạng".
 - **File path:** `docs/img/04-offline-notification.png`
-- ![Placeholder 4: Notification Drawer](https://via.placeholder.com/400x700/111827/f3f4f6?text=Offline+Badge+RED+%26+Local+Notifications+in+Drawer)
+- ![Placeholder 4: Notification Drawer](
+<img width="373" height="840" alt="Screenshot 2026-09-22 205742" src="https://github.com/user-attachments/assets/9dc5d7ed-6faa-49f9-8762-ba0e5d5e8328" />
+
+)
 
 ---
 
@@ -211,18 +223,11 @@ mini-project1/
 - **Kịch bản:** Bật mạng → app auto-sync → mở Google Sheet "VKU Inspections" → xem hàng mới nhất.
 - **Chứng minh:** 3 cột cuối `latitude=16.0735…, longitude=108.2193…, locationAccuracy=12` có giá trị đúng với Screenshot 2. Tất cả 11 cột PHASE 1 vẫn còn.
 - **File path:** `docs/img/05-sheets-gps-columns.png`
-- ![Placeholder 5: Sheets GPS cols](https://via.placeholder.com/800x250/0ea5e9/082f49?text=Google+Sheets+%7C+New+GPS+Columns+filled+with+values)
+- ![Placeholder 5: Sheets GPS cols](
+<img width="375" height="839" alt="Screenshot 2026-09-22 205525" src="https://github.com/user-attachments/assets/8f1cbc20-49d8-42e8-9609-fc50ab788520" />
+<img width="1424" height="133" alt="Screenshot 2026-09-22 205836" src="https://github.com/user-attachments/assets/288730e1-290c-4b24-9441-2389fb6aa0db" />
 
----
-
-### Screenshot 6 — `npx cap doctor` + Android Studio Sync OK
-- **Kịch bản:** Terminal chạy `npx cap doctor` và Android Studio Gradle sync.
-- **Chứng minh:**
-  - `cap doctor`: ✅ @capacitor/core 6.2.2, ✅ @capacitor/android 6.2.2, ✅ JDK 17, ✅ Android SDK 34
-  - Android Studio: `BUILD SUCCESSFUL` 0 errors.
-- **File path:** `docs/img/06-cap-doctor-build-success.png`
-- ![Placeholder 6: cap doctor](https://via.placeholder.com/900x300/111827/a78bfa?text=npx+cap+doctor+%7C+Gradle+BUILD+SUCCESSFUL+in+2m+14s)
-
+)
 ---
 
 ## 5. TECHNICAL CHALLENGES & RESOLUTIONS (PHASE 2)
